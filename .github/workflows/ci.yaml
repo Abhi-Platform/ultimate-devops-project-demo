@@ -92,13 +92,33 @@ jobs:
           run: | 
                sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}}|" kubernetes/productcatalog/deploy.yaml
         
-        - name: Commit and push changes
-          run: |
-            git config --global user.email "akottapalli9@gmail.com"
-            git config --global user.name "Abhi-Platform"
-            git add kubernetes/productcatalog/deploy.yaml
-            git commit -m "[CI]: Update product catalog image tag"
-            git push origin HEAD:githubcicheck
+ name: Update Product Catalog
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update image and push
+        run: |
+          git config --global user.email "akottapalli9@gmail.com"
+          git config --global user.name "Abhi-Platform"
+
+          git add kubernetes/productcatalog/deploy.yaml
+          git commit -m "[CI]: Update product catalog image tag"
+          git push origin HEAD:githubcicheck
+       
 
         
         
