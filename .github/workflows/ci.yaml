@@ -104,5 +104,8 @@ jobs:
           git add kubernetes/productcatalog/deploy.yaml
 
           git diff --cached --quiet || git commit -m "[CI]: Update product catalog image tag"
-
+          
+          git fetch origin githubcicheck
+          git rebase origin/githubcicheck
+          
           git push origin HEAD:githubcicheck
