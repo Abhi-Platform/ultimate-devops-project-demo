@@ -98,7 +98,11 @@ jobs:
             git config --global user.name "Abhi-Platform"
             git add kubernetes/productcatalog/deploy.yaml
             git commit -m "[CI]: Update product catalog image tag"
+<<<<<<< HEAD
             git push 
+=======
+            git push origin HEAD:main
+>>>>>>> a3a8797 (updated my details on yaml)
 
         
         
