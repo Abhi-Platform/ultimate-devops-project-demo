@@ -82,7 +82,7 @@ jobs:
 
         - name: update k8s deployment manifest
           run: |
-                sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}}|" kubernetes/productcatalogue/deploy.yaml
+                sed -i "s|image: .*|image: ${{ secrets.DOCKER_USERNAME }}/product-catalog:${{github.run_id}}|" kubernetes/productcatalog/deploy.yaml
         - name: Commit and push changes
           run: |
                 git config --global user.name "Abhi-Platform"
