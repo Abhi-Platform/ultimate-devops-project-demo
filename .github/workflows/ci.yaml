@@ -91,4 +91,6 @@ jobs:
                 git config --global user.email "akottapalli9@gmail.com"
                 git add kubernetes/productcatalog/deploy.yaml
                 git commit -m "[CI]:Update product-catalog image tag"
+                git fetch origin main
+                git rebase origin/main
                 git push origin HEAD:main
