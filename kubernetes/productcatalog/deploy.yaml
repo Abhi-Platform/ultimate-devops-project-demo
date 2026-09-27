@@ -31,7 +31,7 @@ spec:
       serviceAccountName: opentelemetry-demo
       containers:
         - name: productcatalogservice
-          image: abhiplatform/product-catalog:36296691853
+          image: abhiplatform/product-catalog:36299085910
           imagePullPolicy: IfNotPresent
           ports:
             
